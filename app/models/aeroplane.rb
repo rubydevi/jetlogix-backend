@@ -1,5 +1,5 @@
 class Aeroplane < ApplicationRecord
-  has_many :reservation, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence: true
   validates :image, presence: true
