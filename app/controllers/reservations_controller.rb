@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[ show update destroy ]
+  before_action :set_reservation, only: %i[show update destroy]
 
   # GET /reservations
   def index
@@ -39,13 +39,15 @@ class ReservationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reservation
-      @reservation = Reservation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def reservation_params
-      params.require(:reservation).permit(:reserved_date, :start_time, :end_time, :total_cost, :start_location, :destination, :user_id, :aeroplane_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def reservation_params
+    params.require(:reservation).permit(:reserved_date, :start_time, :end_time, :total_cost, :start_location,
+                                        :destination, :user_id, :aeroplane_id)
+  end
 end
