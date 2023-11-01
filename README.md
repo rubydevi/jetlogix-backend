@@ -168,11 +168,10 @@ Clone this repository to your desired folder:
 
 Install this project with:
 
-    ```sh
+  ```sh
     cd my-project
     bundle install
-    ```
-    ```sh
+  ```
 
 ### Usage
 
