@@ -1,5 +1,7 @@
 class AeroplanesController < ApplicationController
   before_action :set_aeroplane, only: %i[show update destroy]
+   before_action :authenticate_user!
+
 
   # GET /aeroplanes
   def index
@@ -14,15 +16,16 @@ class AeroplanesController < ApplicationController
   end
 
   # POST /aeroplanes
-  def create
-    @aeroplane = Aeroplane.new(aeroplane_params)
+def create
+  @aeroplane = Aeroplane.new(aeroplane_params)
+  # @aeroplane.user = User.id
 
-    if @aeroplane.save
-      render json: @aeroplane, status: :created, location: @aeroplane
-    else
-      render json: @aeroplane.errors, status: :unprocessable_entity
-    end
+  if @aeroplane.save
+    render json: @aeroplane, status: :created, location: @aeroplane
+  else
+    render json: { errors: @aeroplane.errors.full_messages }, status: :unprocessable_entity
   end
+end
 
   # PATCH/PUT /aeroplanes/1
   def update
