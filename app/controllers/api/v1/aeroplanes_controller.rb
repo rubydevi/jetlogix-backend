@@ -7,13 +7,13 @@ class Api::V1::AeroplanesController < ApplicationController
     render json: { aeroplanes: @aeroplanes }
   end
 
-    # GET /aeroplanes/1
-    def show
-      @aeroplane = Aeroplane.find(params[:id])
-      render json: @aeroplane
-    end
-    
-    def create
+  # GET /aeroplanes/1
+  def show
+    @aeroplane = Aeroplane.find(params[:id])
+    render json: @aeroplane
+  end
+
+  def create
     @aeroplane = Aeroplane.new(aeroplane_params)
 
     if @aeroplane.save
@@ -49,5 +49,4 @@ class Api::V1::AeroplanesController < ApplicationController
     params.require(:aeroplane).permit(:name, :model, :image, :description, :number_of_seats, :location, :fee,
                                       :reserved)
   end
-  
 end
