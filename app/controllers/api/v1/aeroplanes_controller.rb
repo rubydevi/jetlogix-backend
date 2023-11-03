@@ -1,5 +1,4 @@
 class Api::V1::AeroplanesController < ApplicationController
-  # before_action :set_aeroplane, only: %i[show update destroy]
   # GET /aeroplanes
   def index
     @aeroplanes = Aeroplane.all
