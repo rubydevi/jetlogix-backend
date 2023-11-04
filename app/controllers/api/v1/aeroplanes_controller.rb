@@ -16,7 +16,7 @@ class Api::V1::AeroplanesController < ApplicationController
     @aeroplane = Aeroplane.new(aeroplane_params)
 
     if @aeroplane.save
-      render json: @aeroplane, status: :created, location: @aeroplane
+      render json: @aeroplane, status: :created
     else
       render json: @aeroplane.errors, status: :unprocessable_entity
     end
