@@ -29,9 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_02_050731) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "reserved_date"
-    t.date "start_time"
-    t.date "end_time"
-    t.decimal "total_cost"
+    t.timestamp "start_time",
+    t.timestamp "end_time",
     t.string "start_location"
     t.string "destination"
     t.bigint "user_id", null: false
