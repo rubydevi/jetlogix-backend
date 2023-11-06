@@ -7,7 +7,7 @@ class CreateAeroplanes < ActiveRecord::Migration[7.1]
       t.string :description
       t.integer :number_of_seats
       t.string :location
-      t.decimal :fee
+      t.numeric :fee
       t.boolean :reserved
 
       t.timestamps
