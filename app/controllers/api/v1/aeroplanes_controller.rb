@@ -4,7 +4,7 @@ class Api::V1::AeroplanesController < ApplicationController
     @aeroplanes = Aeroplane.all
     respond_to do |format|
       format.html
-      format.json { render json:@aeroplanes }
+      format.json { render json: @aeroplanes }
     end
 
     render json: { aeroplanes: @aeroplanes }

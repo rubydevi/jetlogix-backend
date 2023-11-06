@@ -7,9 +7,9 @@ class Api::V1::ReservationsController < ApplicationController
     @reservations = Reservation.all
     respond_to do |format|
       format.html
-      format.json { render json:@reservations }
+      format.json { render json: @reservations }
     end
-    
+
     render json: @reservations
   end
 
