@@ -5,6 +5,10 @@ class Api::V1::ReservationsController < ApplicationController
   # GET /reservations
   def index
     @reservations = Reservation.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @reservations }
+    end
 
     render json: @reservations
   end

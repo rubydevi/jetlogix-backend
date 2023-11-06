@@ -98,6 +98,11 @@ JetLogix’s backend is a robust Rails application utilizing PostgreSQL database
     <li><a href="https://github.com/ged/ruby-pg">Ruby Pg</a></li>
   </ul>
 
+    <ul>
+    <li><a href="https://github.com/rswag/rswag">Rswag</a></li>
+  </ul>
+
+
 
 <!--
 <summary>Rubocop</summary>
@@ -123,6 +128,7 @@ JetLogix’s backend is a robust Rails application utilizing PostgreSQL database
 > Controllers to manage jets and reservations, allowing CRUD (Create, Read, Update, Delete) operations.
 
 > Secure user authentication and profile management
+> API documentation
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

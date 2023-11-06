@@ -2,6 +2,10 @@ class Api::V1::AeroplanesController < ApplicationController
   # GET /aeroplanes
   def index
     @aeroplanes = Aeroplane.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @aeroplanes }
+    end
 
     render json: { aeroplanes: @aeroplanes }
   end
@@ -17,15 +21,6 @@ class Api::V1::AeroplanesController < ApplicationController
 
     if @aeroplane.save
       render json: @aeroplane, status: :created
-    else
-      render json: @aeroplane.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /aeroplanes/1
-  def update
-    if @aeroplane.update(aeroplane_params)
-      render json: @aeroplane
     else
       render json: @aeroplane.errors, status: :unprocessable_entity
     end

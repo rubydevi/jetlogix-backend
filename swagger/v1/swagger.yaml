@@ -1,0 +1,102 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  '/api/v1/users/{user_id}/aeroplanes':
+    get:
+      summary: Retrieves aeroplanes
+      tags:
+        - Aeroplanes
+      parameters:
+        - name: aeroplane
+          in: path
+          description: aeroplane
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: aeroplane found
+    post:
+      summary: Creates a Aeroplane
+      tags:
+        - Aeroplanes
+      parameters:
+        - name: aeroplane
+          in: path
+          description: aeroplane
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: aeroplane created
+  '/api/v1/users/{user_id}/aeroplane/{id}':
+    get:
+      summary: Retrieves aeroplanes
+      tags:
+        - Aeroplanes
+      parameters:
+        - name: aeroplane
+          in: path
+          description: aeroplane
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: aeroplane found
+    delete:
+      summary: Delete aeroplanes
+      tags:
+        - Aeroplanes
+      parameters:
+        - name: aeroplane
+          in: path
+          description: aeroplane
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Aeroplane deleted successfully
+        '404':
+          description: Failed to delete aeroplane
+  '/api/v1/users/{user_id}/reservations':
+    get:
+      summary: Retrieves reservations
+      tags:
+        - Reservations
+      parameters:
+        - name: reservations
+          in: path
+          description: reservations
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: reservations found
+    post:
+      summary: Creates a Reservations
+      tags:
+        - Reservations
+      parameters:
+        - name: reservations
+          in: path
+          description: reservations
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: reservations created
+        '422':
+          description: Reservations creation failed
+servers:
+  - url: https://{defaultHost}
+    variables:
+      defaultHost:
+        default: www.example.com
