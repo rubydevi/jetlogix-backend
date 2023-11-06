@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe '/reservations', type: :request do
+describe '/reservations' do
   # This should return the minimal set of attributes required to create a valid
   # Reservation. As you add validations to Reservation, be sure to
   # adjust the attributes here as well.
@@ -32,54 +32,49 @@ RSpec.describe '/reservations', type: :request do
     }
   end
 
-  describe 'GET /index' do
-    it 'renders a successful response' do
-      path '/api/v1/users/{user_id}/reservations' do
-        Reservation.create! reservation
-        get api_v1_user_reservations_path, as: :json
-        expect(response).to be_successful
+  # index of reservations
+  path '/api/v1/users/{user_id}/reservations' do
+    get 'Retrieves reservations' do
+      tags 'Reservations'
+      produces 'application/json'
+      parameter name: 'reservations', in: :path, type: :string, description: 'reservations'
+      response '200', 'reservations found' do
+        run_test!
       end
     end
   end
 
-  describe 'POST /create' do
-    context 'with valid parameters' do
-      it 'creates a new Reservation' do
-        path '/api/v1/users/{user_id}/reservations' do
-          expect do
-            post api_v1_user_reservations_path,
-                 params: { reservation: }, as: :json
-          end.to change(Reservation, :count).by(1)
+  path '/api/v1/users/{user_id}/reservations' do
+    post 'Creates a Reservations' do
+      tags 'Aeroplanes'
+      consumes 'application/json'
+      parameter name: 'reservations', in: :path, type: :string, description: 'reservations'
+      response '200', 'reservations created' do
+        let(:reservations) do
+          {
+            reserved_date: '2021-04-20',
+            start_time: '2021-04-20 12:00:00',
+            end_time: '2021-04-20 13:00:00',
+            start_location: 'Test',
+            destination: 'Thailand',
+            user_id: 3,
+            aeroplane_id: 14
+          }
         end
+        run_test!
       end
-
-      it 'renders a JSON response with the new reservation' do
-        path '/api/v1/users/{user_id}/reservations' do
-          post api_v1_user_reservations_path,
-               params: { reservation: }, as: :json
-          expect(response).to have_http_status(:created)
-          expect(response.content_type).to match(a_string_including('application/json'))
+      response '422', 'Reservations creation failed' do
+        let(:reservations) do
+          {
+            reserved_date: '2021-04-20',
+            start_time: '2021-04-20 12:00:00',
+            end_time: '2021-04-20 13:00:00',
+            start_location: 'Test',
+            destination: 'Thailand',
+            aeroplane_id: 14
+          }
         end
-      end
-    end
-
-    context 'with invalid parameters' do
-      it 'does not create a new Reservation' do
-        path '/api/v1/users/{user_id}/reservations' do
-          expect do
-            post api_v1_user_reservations_path,
-                 params: { reservation: reserve }, as: :json
-          end.to change(Reservation, :count).by(0)
-        end
-      end
-
-      it 'renders a JSON response with errors for the new reservation' do
-        path '/api/v1/users/{user_id}/reservations' do
-          post api_v1_user_reservations_path,
-               params: { reservation: reserving }, as: :json
-          expect(response).to have_http_status(:unprocessable_entity)
-          expect(response.content_type).to match(a_string_including('application/json'))
-        end
+        run_test!
       end
     end
   end

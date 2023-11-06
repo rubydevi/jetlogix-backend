@@ -38,7 +38,7 @@ describe '/aeroplanes/api' do
     end
   end
 
-# create aeroplanes
+  # create aeroplanes
   path '/api/v1/users/{user_id}/aeroplanes' do
     post 'Creates a Aeroplane' do
       tags 'Aeroplanes'
@@ -62,9 +62,9 @@ describe '/aeroplanes/api' do
     end
   end
 
-    # show  aeroplanes
+  # show  aeroplanes
   path '/api/v1/users/{user_id}/aeroplane/{id}' do
-     get 'Retrieves aeroplanes' do
+    get 'Retrieves aeroplanes' do
       tags 'Aeroplanes'
       produces 'application/json'
       parameter name: 'aeroplane', in: :path, type: :string, description: 'aeroplane'
@@ -72,11 +72,11 @@ describe '/aeroplanes/api' do
         run_test!
       end
     end
-end
+  end
 
   # delete  aeroplanes
   path '/api/v1/users/{user_id}/aeroplane/{id}' do
-     delete 'Delete aeroplanes' do
+    delete 'Delete aeroplanes' do
       tags 'Aeroplanes'
       produces 'application/json'
       parameter name: 'aeroplane', in: :path, type: :string, description: 'aeroplane'
@@ -87,6 +87,5 @@ end
         run_test!
       end
     end
-end
-
+  end
 end
