@@ -46,7 +46,7 @@ describe '/reservations' do
 
   path '/api/v1/users/{user_id}/reservations' do
     post 'Creates a Reservations' do
-      tags 'Aeroplanes'
+      tags 'Reservations'
       consumes 'application/json'
       parameter name: 'reservations', in: :path, type: :string, description: 'reservations'
       response '200', 'reservations created' do
