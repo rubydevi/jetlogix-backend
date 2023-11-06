@@ -75,30 +75,38 @@ RSpec.describe '/aeroplanes', type: :request do
     end
   end
 
-  #     it 'renders a JSON response with the new aeroplane' do
-  #       post aeroplanes_url,
-  #            params: { aeroplane: aeroplane }, headers: valid_headers, as: :json
-  #       expect(response).to have_http_status(:created)
-  #       expect(response.content_type).to match(a_string_including('application/json'))
-  #     end
-  #   end
 
-  #   context 'with invalid parameters' do
-  #     it 'does not create a new Aeroplane' do
-  #       expect do
-  #         post aeroplanes_url,
-  #              params: { aeroplane: aero }, as: :json
-  #       end.to change(Aeroplane, :count).by(0)
-  #     end
+      it 'renders a JSON response with the new aeroplane' do
+        path '/aeroplanes' do
+        post api_v1_user_aeroplane_path,
+             params: { aeroplane: aeroplane }, as: :json
+        expect(response).to have_http_status(:created)
+        expect(response.content_type).to match(a_string_including('application/json'))
+      end
+    end
 
-  #     it 'renders a JSON response with errors for the new aeroplane' do
-  #       post aeroplanes_url,
-  #            params: { aeroplane: aero }, headers: valid_headers, as: :json
-  #       expect(response).to have_http_status(:unprocessable_entity)
-  #       expect(response.content_type).to match(a_string_including('application/json'))
-  #     end
-  #   end
-  # end
+
+    context 'with invalid parameters' do
+      it 'does not create a new Aeroplane' do
+         path '/aeroplanes' do
+        expect do
+          post api_v1_user_aeroplane_path,
+               params: { aeroplane: aero }, as: :json
+        end.to change(Aeroplane, :count).by(0)
+      end
+      end
+    end
+
+      it 'renders a JSON response with errors for the new aeroplane' do
+           path '/aeroplanes' do
+        post api_v1_user_aeroplane_path,
+             params: { aeroplane: aero }, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response.content_type).to match(a_string_including('application/json'))
+      end
+    end
+  end
+
 
   # describe 'PATCH /update' do
   #   context 'with valid parameters' do
@@ -142,4 +150,4 @@ RSpec.describe '/aeroplanes', type: :request do
   #     end.to change(Aeroplane, :count).by(-1)
   #   end
   # end
-end
+
