@@ -33,7 +33,13 @@ class Api::V1::AeroplanesController < ApplicationController
 
   # DELETE /aeroplanes/1
   def destroy
-    @aeroplane.destroy!
+    @aeroplane = Aeroplane.find(params[:id])
+
+    if @aeroplane.destroy
+      render json: { message: 'Aeroplane deleted successfully' }, status: :no_content
+    else
+      render json: { error: 'Failed to delete aeroplane' }, status: :unprocessable_entity
+    end
   end
 
   private
