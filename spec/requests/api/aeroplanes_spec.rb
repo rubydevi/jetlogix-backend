@@ -108,40 +108,14 @@ RSpec.describe '/aeroplanes', type: :request do
   end
 
 
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-
-
-  #     it 'renders a JSON response with the aeroplane' do
-  #       aeroplane = Aeroplane.create! aeroplane
-  #       patch aeroplane_url(aeroplane),
-  #             params: { aeroplane: new_attributes }, headers: valid_headers, as: :json
-  #       expect(response).to have_http_status(:ok)
-  #       expect(response.content_type).to match(a_string_including('application/json'))
-  #     end
-  #   end
-
-  #   context 'with invalid parameters' do
-  #     it 'renders a JSON response with errors for the aeroplane' do
-  #       aeroplane = Aeroplane.create! aeroplane
-  #       patch aeroplane_url(aeroplane),
-  #             params: { aeroplane:aero }, headers: valid_headers, as: :json
-  #       expect(response).to have_http_status(:unprocessable_entity)
-  #       expect(response.content_type).to match(a_string_including('application/json'))
-  #     end
-  #   end
-  # end
-
-  # describe 'DELETE /destroy' do
-  #   it 'destroys the requested aeroplane' do
-  #     aeroplane = Aeroplane.create! aeroplane
-  #     expect do
-  #       delete aeroplane_url(aeroplane), headers: valid_headers, as: :json
-  #     end.to change(Aeroplane, :count).by(-1)
-  #   end
-  # end
+  describe 'DELETE /destroy' do
+    it 'destroys the requested aeroplane' do
+       path '/aeroplanes' do
+      aeroplane = Aeroplane.create! aeroplane
+      expect do
+        delete api_v1_user_aeroplane_path(aeroplane), as: :json
+      end.to change(Aeroplane, :count).by(-1)
+    end
+  end
+end
 
