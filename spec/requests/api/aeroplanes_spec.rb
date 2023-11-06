@@ -108,19 +108,13 @@ RSpec.describe '/aeroplanes', type: :request do
   end
 
 
-  # describe 'PATCH /update' do
-  #   context 'with valid parameters' do
-  #     let(:new_attributes) do
-  #       skip('Add a hash of attributes valid for your model')
-  #     end
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-  #     it 'updates the requested aeroplane' do
-  #       aeroplane = Aeroplane.create! aeroplane
-  #       patch aeroplane_url(aeroplane),
-  #             params: { aeroplane: new_attributes }, headers: valid_headers, as: :json
-  #       aeroplane.reload
-  #       skip('Add assertions for updated state')
-  #     end
+
 
   #     it 'renders a JSON response with the aeroplane' do
   #       aeroplane = Aeroplane.create! aeroplane
