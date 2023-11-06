@@ -26,15 +26,6 @@ class AeroplanesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /aeroplanes/1
-  def update
-    if @aeroplane.update(aeroplane_params)
-      render json: @aeroplane
-    else
-      render json: @aeroplane.errors, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /aeroplanes/1
   def destroy
     @aeroplane.destroy!

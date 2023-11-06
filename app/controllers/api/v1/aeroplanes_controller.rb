@@ -2,6 +2,10 @@ class Api::V1::AeroplanesController < ApplicationController
   # GET /aeroplanes
   def index
     @aeroplanes = Aeroplane.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @aeroplanes }
+    end
 
     render json: { aeroplanes: @aeroplanes }
   end
@@ -22,18 +26,15 @@ class Api::V1::AeroplanesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /aeroplanes/1
-  def update
-    if @aeroplane.update(aeroplane_params)
-      render json: @aeroplane
-    else
-      render json: @aeroplane.errors, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /aeroplanes/1
   def destroy
-    @aeroplane.destroy!
+    @aeroplane = Aeroplane.find(params[:id])
+
+    if @aeroplane.destroy
+      render json: { message: 'Aeroplane deleted successfully' }, status: :no_content
+    else
+      render json: { error: 'Failed to delete aeroplane' }, status: :unprocessable_entity
+    end
   end
 
   private
