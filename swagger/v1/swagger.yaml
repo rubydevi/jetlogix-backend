@@ -1,0 +1,26 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/aeroplanes":
+    get:
+      summary: Retrieves aeroplanes
+      tags:
+      - Aeroplanes
+      parameters:
+      - name: aeroplane
+        in: path
+        description: aeroplane
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: aeroplane found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
