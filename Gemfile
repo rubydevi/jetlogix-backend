@@ -6,6 +6,8 @@ ruby '3.2.2'
 gem 'rails', '~> 7.1.1'
 gem 'rspec-rails'
 gem 'rswag'
+# gem 'rswag-api'
+# gem 'rswag-ui'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
@@ -48,4 +50,6 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  # gem 'rspec-rails'
+  # gem 'rswag-specs'
 end
