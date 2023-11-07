@@ -37,18 +37,32 @@ describe '/reservations' do
     get 'Retrieves reservations' do
       tags 'Reservations'
       produces 'application/json'
-      parameter name: 'reservations', in: :path, type: :string, description: 'reservations'
+      parameter name: :user_id, in: :path, type: :string, required: true
       response '200', 'reservations found' do
         run_test!
       end
     end
   end
 
+  # Create Reservation
   path '/api/v1/users/{user_id}/reservations' do
-    post 'Creates a Reservations' do
+    post 'Creates a Reservation' do
       tags 'Reservations'
       consumes 'application/json'
-      parameter name: 'reservations', in: :path, type: :string, description: 'reservations'
+      parameter name: :user_id, in: :path, type: :string, required: true
+      parameter name: 'reservations', in: :body, schema: {
+        type: :object,
+        properties: {
+          reserved_date: { type: :string, format: :datetime },
+          start_time: { type: :string, format: :datetime },
+          end_time: { type: :string, format: :datetime },
+          start_location: { type: :string },
+          destination: { type: :string },
+          user_id: { type: :number },
+          aeroplane_id: { type: :number }
+        },
+        required: %w[reserved_date destination user_id aeroplane_id]
+      }
       response '200', 'reservations created' do
         let(:reservations) do
           {
@@ -64,16 +78,6 @@ describe '/reservations' do
         run_test!
       end
       response '422', 'Reservations creation failed' do
-        let(:reservations) do
-          {
-            reserved_date: '2021-04-20',
-            start_time: '2021-04-20 12:00:00',
-            end_time: '2021-04-20 13:00:00',
-            start_location: 'Test',
-            destination: 'Thailand',
-            aeroplane_id: 14
-          }
-        end
         run_test!
       end
     end
