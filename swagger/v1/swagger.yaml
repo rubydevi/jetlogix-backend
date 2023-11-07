@@ -4,99 +4,162 @@ info:
   title: API V1
   version: v1
 paths:
-  '/api/v1/users/{user_id}/aeroplanes':
+  "/api/v1/users/{user_id}/aeroplanes":
     get:
       summary: Retrieves aeroplanes
       tags:
-        - Aeroplanes
+      - Aeroplanes
       parameters:
-        - name: aeroplane
-          in: path
-          description: aeroplane
-          required: true
-          schema:
-            type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: aeroplane found
     post:
-      summary: Creates a Aeroplane
+      summary: Creates an Aeroplane
       tags:
-        - Aeroplanes
+      - Aeroplanes
       parameters:
-        - name: aeroplane
-          in: path
-          description: aeroplane
-          required: true
-          schema:
-            type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: aeroplane created
-  '/api/v1/users/{user_id}/aeroplane/{id}':
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                model:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                number_of_seats:
+                  type: integer
+                location:
+                  type: string
+                fee:
+                  type: number
+                reserved:
+                  type: boolean
+              required:
+              - name
+              - model
+              - image
+              - description
+              - number_of_seats
+              - location
+              - fee
+              - reserved
+  "/api/v1/users/{user_id}/aeroplanes/{id}":
     get:
-      summary: Retrieves aeroplanes
+      summary: Retrieves an aeroplane
       tags:
-        - Aeroplanes
+      - Aeroplanes
       parameters:
-        - name: aeroplane
-          in: path
-          description: aeroplane
-          required: true
-          schema:
-            type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: aeroplane found
     delete:
-      summary: Delete aeroplanes
+      summary: Delete an aeroplane
       tags:
-        - Aeroplanes
+      - Aeroplanes
       parameters:
-        - name: aeroplane
-          in: path
-          description: aeroplane
-          required: true
-          schema:
-            type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '204':
           description: Aeroplane deleted successfully
         '404':
           description: Failed to delete aeroplane
-  '/api/v1/users/{user_id}/reservations':
+  "/api/v1/users/{user_id}/reservations":
     get:
       summary: Retrieves reservations
       tags:
-        - Reservations
+      - Reservations
       parameters:
-        - name: reservations
-          in: path
-          description: reservations
-          required: true
-          schema:
-            type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: reservations found
     post:
-      summary: Creates a Reservations
+      summary: Creates a Reservation
       tags:
-        - Reservations
+      - Reservations
       parameters:
-        - name: reservations
-          in: path
-          description: reservations
-          required: true
-          schema:
-            type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: reservations created
         '422':
           description: Reservations creation failed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reserved_date:
+                  type: string
+                  format: datetime
+                start_time:
+                  type: string
+                  format: datetime
+                end_time:
+                  type: string
+                  format: datetime
+                start_location:
+                  type: string
+                destination:
+                  type: string
+                user_id:
+                  type: number
+                aeroplane_id:
+                  type: number
+              required:
+              - reserved_date
+              - destination
+              - user_id
+              - aeroplane_id
 servers:
-  - url: https://{defaultHost}
-    variables:
-      defaultHost:
-        default: www.example.com
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:4000

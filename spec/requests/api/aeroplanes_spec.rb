@@ -31,7 +31,7 @@ describe '/aeroplanes/api' do
     get 'Retrieves aeroplanes' do
       tags 'Aeroplanes'
       produces 'application/json'
-      parameter name: 'aeroplane', in: :path, type: :string, description: 'aeroplane'
+      parameter name: :user_id, in: :path, type: :string, required: true
       response '200', 'aeroplane found' do
         run_test!
       end
@@ -40,10 +40,24 @@ describe '/aeroplanes/api' do
 
   # create aeroplanes
   path '/api/v1/users/{user_id}/aeroplanes' do
-    post 'Creates a Aeroplane' do
+    post 'Creates an Aeroplane' do
       tags 'Aeroplanes'
       consumes 'application/json'
-      parameter name: 'aeroplane', in: :path, type: :string, description: 'aeroplane'
+      parameter name: :user_id, in: :path, type: :string, required: true
+      parameter name: 'aeroplane', in: :body, schema: {
+        type: :object,
+        properties: {
+          name: { type: :string },
+          model: { type: :string },
+          image: { type: :string },
+          description: { type: :string },
+          number_of_seats: { type: :integer },
+          location: { type: :string },
+          fee: { type: :number },
+          reserved: { type: :boolean }
+        },
+        required: %w[name model image description number_of_seats location fee reserved]
+      }
       response '200', 'aeroplane created' do
         let(:aeroplane) do
           {
@@ -63,11 +77,12 @@ describe '/aeroplanes/api' do
   end
 
   # show  aeroplanes
-  path '/api/v1/users/{user_id}/aeroplane/{id}' do
-    get 'Retrieves aeroplanes' do
+  path '/api/v1/users/{user_id}/aeroplanes/{id}' do
+    get 'Retrieves an aeroplane' do
       tags 'Aeroplanes'
       produces 'application/json'
-      parameter name: 'aeroplane', in: :path, type: :string, description: 'aeroplane'
+      parameter name: :user_id, in: :path, type: :string, required: true
+      parameter name: :id, in: :path, type: :string, required: true
       response '200', 'aeroplane found' do
         run_test!
       end
@@ -75,11 +90,12 @@ describe '/aeroplanes/api' do
   end
 
   # delete  aeroplanes
-  path '/api/v1/users/{user_id}/aeroplane/{id}' do
-    delete 'Delete aeroplanes' do
+  path '/api/v1/users/{user_id}/aeroplanes/{id}' do
+    delete 'Delete an aeroplane' do
       tags 'Aeroplanes'
       produces 'application/json'
-      parameter name: 'aeroplane', in: :path, type: :string, description: 'aeroplane'
+      parameter name: :user_id, in: :path, type: :string, required: true
+      parameter name: :id, in: :path, type: :string, required: true
       response '204', 'Aeroplane deleted successfully' do
         run_test!
       end
