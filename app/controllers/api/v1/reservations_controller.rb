@@ -48,6 +48,6 @@ class Api::V1::ReservationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def reservation_params
     params.require(:reservation).permit(:reserved_date, :start_time, :end_time, :total_cost, :start_location,
-                                        :destination, :user_id, :aeroplane_id)
+                                        :destination, :user_id, :aeroplane_id, :name)
   end
 end
