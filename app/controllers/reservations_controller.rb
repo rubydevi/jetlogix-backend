@@ -33,11 +33,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # DELETE /reservations/1
-  def destroy
-    @reservation.destroy!
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
