@@ -3,10 +3,10 @@ source 'https://rubygems.org'
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'faker', '~> 2.20'
 gem 'rails', '~> 7.1.1'
 gem 'rspec-rails'
 gem 'rswag'
-gem 'faker', '~> 2.20'
 # gem 'rswag-api'
 # gem 'rswag-ui'
 # Use postgresql as the database for Active Record
