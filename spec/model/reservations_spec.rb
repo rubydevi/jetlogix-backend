@@ -7,7 +7,7 @@ RSpec.describe Reservation, type: :model do
   before { user.save }
 
   let(:plane) do
-    Aeroplane.new( name: "boning 777", model: 'ruby@mail.com', image: 'image 1', description: 'Description of the planes',
+    Aeroplane.new(name: 'boning 777', model: 'ruby@mail.com', image: 'image 1', description: 'Description of the planes',
                   number_of_seats: 6, location: 'Middle Earth', fee: 60.0)
   end
   before { plane.save }

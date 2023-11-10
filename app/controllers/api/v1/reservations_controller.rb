@@ -35,7 +35,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   # DELETE /reservations/1
   def destroy
-    if  @reservation.destroy!
+    if @reservation.destroy!
       render json: { message: 'Reservation deleted successfully' }, status: :no_content
     else
       render json: { error: 'Failed to delete Reservation' }, status: :unprocessable_entity
