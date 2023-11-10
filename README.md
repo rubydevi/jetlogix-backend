@@ -168,7 +168,7 @@ To run the project, you will need to execute:
 To run tests, run the following command:
 
 ```sh
-  rake rswag:specs:swaggerize SPEC=spec/requests/api
+  rspec spec/model/
 ```
 
 <!-- ### Deployment
