@@ -160,6 +160,12 @@ To run the project, you will need to execute:
 ```sh
   rails credentials:edit
 
+  rails db:create
+
+  rails db:migrate
+
+  rails db:seed
+
   rails s
 ```
 
@@ -168,7 +174,7 @@ To run the project, you will need to execute:
 To run tests, run the following command:
 
 ```sh
-  Rspec spec  or bundle exec rspec spec
+  rspec spec/model/
 ```
 
 <!-- ### Deployment

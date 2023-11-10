@@ -31,7 +31,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_07_114431) do
     t.date "reserved_date"
     t.datetime "start_time", precision: nil
     t.datetime "end_time", precision: nil
-    t.decimal "total_cost"
     t.string "start_location"
     t.string "destination"
     t.bigint "user_id", null: false
