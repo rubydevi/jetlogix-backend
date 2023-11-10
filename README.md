@@ -160,6 +160,12 @@ To run the project, you will need to execute:
 ```sh
   rails credentials:edit
 
+  rails db:create
+
+  rails db:migrate
+
+  rails db:seed
+
   rails s
 ```
 
