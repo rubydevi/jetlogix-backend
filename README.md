@@ -145,10 +145,10 @@ Or create the .env file manually at the root of the application.
 
 2. open databse.yml file and Find the default: &default section in the file and copy the credentials into your .env file:
 
-```sh
-  database: jetlogix_backend_production
-  username: jetlogix_backend
-  password: <%= ENV["JETLOGIX_BACKEND_DATABASE_PASSWORD"] %>
+```
+  host: localhost
+  username: your_username
+  password: your_password
 ```
 
 ### Usage
