@@ -145,10 +145,9 @@ Or create the .env file manually at the root of the application.
 
 2. open databse.yml file and Find the default: &default section in the file and copy the credentials into your .env file:
 
-```
-  host: localhost
-  username: your_username
-  password: your_password
+```sh
+  DATABASE_USERNAME=your_username
+  DATABASE_PASSWORD=your_password
 ```
 
 ### Usage
@@ -196,6 +195,7 @@ Example:
 
 - [Kanban board initial state ](https://user-images.githubusercontent.com/112550568/279359779-a877a136-d14e-4813-8868-68b5b7aec9e6.png)
 
+- We are a team of 3 members as indicated in the authors section
 <!-- CONTRIBUTING -->
 
 <!-- AUTHORS -->
