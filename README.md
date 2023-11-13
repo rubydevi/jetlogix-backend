@@ -12,18 +12,20 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+  - [🚀 Front End](#front-end)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
     - [🚀 Live Demo](#live-demo)
-    - [🚀 Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
   - [Usage](#usage)
+  - [Setup .ENV](#setup-env)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
+- [📆 Kanban Board ](#kanban-board)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -37,7 +39,13 @@
 
 # 📖 [JetLogix] <a name="about-project"></a>
 
-JetLogix’s backend is a robust Rails application utilizing PostgreSQL database, managing private jet reservations. It exposes efficient API endpoints to [JetLogix front end](https://github.com/rubydevi/jetlogix-frontend), providing access to the application’s database and ensuring secure storage and retrieval private jets, user's, and reservation data.
+JetLogix’s backend is a robust Rails application utilizing PostgreSQL database, managing private jet reservations. It exposes efficient API endpoints to JetLogix front, providing access to the application’s database and ensuring secure storage and retrieval private jets, user's, and reservation data.
+
+
+
+## 🚀 FrontEnd <a name="front-end"></a>
+
+ [Click here to see the JetLogix front end](https://github.com/rubydevi/jetlogix-frontend)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -79,19 +87,6 @@ JetLogix’s backend is a robust Rails application utilizing PostgreSQL database
     <li><a href="https://github.com/rswag/rswag">Rswag</a></li>
   </ul>
 
-<!--
-<summary>Rubocop</summary>
-  <ul>
-    <li><a href="https://github.com/rubocop/rubocop-rails">Rubocop</a></li>
-  </ul>
-
-
-
-<summary>Selenium Web driver</summary>
-  <ul>
-    <li><a href="https://rubygems.org/gems/selenium-webdriver/versions/4.4.0">Selenium Web driver</a></li>
-  </ul> -->
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -109,17 +104,6 @@ JetLogix’s backend is a robust Rails application utilizing PostgreSQL database
 <!--
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Live Demo of this application:
-
-- [Live Demo Link](https:// )
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🚀 Video Presentation Demo <a name="video-presentation"></a>
-
-> Video Presentation of this application:
-
-- [Video Presentation]( ) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
@@ -150,7 +134,20 @@ Install this project with:
 
   bundle install
 
+```
+### setup-env
 
+1. create an env file by running the following command
+```sh
+  touch .env
+```
+Or create the .env file manually at the root of the application.
+
+2. open databse.yml file and Find the default: &default section in the file and copy the credentials into your .env file:
+
+```sh
+  DATABASE_USERNAME=your_username
+  DATABASE_PASSWORD=your_password
 ```
 
 ### Usage
@@ -174,6 +171,7 @@ To run the project, you will need to execute:
 To run tests, run the following command:
 
 ```sh
+  rails db:migrate RAILS_ENV=test
   rspec spec/model/
 ```
 
@@ -190,6 +188,15 @@ Example:
  -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📆 Kanban Board <a name="kanban-board"></a>
+
+- [Kanban board](https://github.com/rubydevi/jetlogix-backend/projects/1)
+
+- [Kanban board initial state ](https://user-images.githubusercontent.com/112550568/279359779-a877a136-d14e-4813-8868-68b5b7aec9e6.png)
+
+- We are a team of 3 members as indicated in the authors section
+<!-- CONTRIBUTING -->
 
 <!-- AUTHORS -->
 
@@ -224,7 +231,7 @@ Example:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
+<!-- Kanban Board -->
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -254,7 +261,8 @@ Thank you for taking the time to explore this project! Your support means a lot 
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to express my sincere gratitude to [Microverse](https://github.com/microverseinc), the dedicated reviewers, and collaborators. Your unwavering support, feedback, and collaborative efforts have played an immense role in making this journey a resounding success. I am truly grateful for your contributions and for being an integral part of my achievements. Thank you for your continued support.
+We would like to express my sincere gratitude to [Microverse](https://github.com/microverseinc), the dedicated reviewers, and collaborators. Your unwavering support, feedback, and collaborative efforts have played an immense role in making this journey a resounding success.
+A big thank you to [Murat Korkmaz](https://www.behance.net/muratk) for the providing the UX design inspiration for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -273,8 +281,8 @@ I would like to express my sincere gratitude to [Microverse](https://github.com/
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ATTRIBUTION -->
- <!-- ## 👥 Attribution <a name="attribution"></a>
-- ProjectIcon: [Svgrepo](https://www.svgrepo.com/) -->
+ ## 👥 Attribution <a name="attribution"></a>
+- This application's front-end UI design is based on the original design by: [Murat Korkmaz](https://www.behance.net/muratk)
 
 <!-- LICENSE -->
 
