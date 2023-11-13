@@ -172,6 +172,7 @@ To run the project, you will need to execute:
 To run tests, run the following command:
 
 ```sh
+  rails db:migrate RAILS_ENV=test
   rspec spec/model/
 ```
 
