@@ -3,6 +3,12 @@
   <br/>
   <h1><b>JetLogix</b></h1>
 
+<div align="center">
+<h2>ER Diagrma</h2>
+<img width="741" alt="Screenshot 2023-09-25 at 12 07 22" src="./public/jetlogix-db-schema.png">
+
+</div>
+
 </div>
 
 <a name="readme-top"></a>
@@ -41,11 +47,9 @@
 
 JetLogix’s backend is a robust Rails application utilizing PostgreSQL database, managing private jet reservations. It exposes efficient API endpoints to JetLogix front, providing access to the application’s database and ensuring secure storage and retrieval private jets, user's, and reservation data.
 
-
-
 ## 🚀 FrontEnd <a name="front-end"></a>
 
- [Click here to see the JetLogix front end](https://github.com/rubydevi/jetlogix-frontend)
+[Click here to see the JetLogix front end](https://github.com/rubydevi/jetlogix-frontend)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -135,12 +139,15 @@ Install this project with:
   bundle install
 
 ```
+
 ### setup-env
 
 1. create an env file by running the following command
+
 ```sh
   touch .env
 ```
+
 Or create the .env file manually at the root of the application.
 
 2. open databse.yml file and Find the default: &default section in the file and copy the credentials into your .env file:
@@ -281,7 +288,9 @@ A big thank you to [Murat Korkmaz](https://www.behance.net/muratk) for the provi
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ATTRIBUTION -->
- ## 👥 Attribution <a name="attribution"></a>
+
+## 👥 Attribution <a name="attribution"></a>
+
 - This application's front-end UI design is based on the original design by: [Murat Korkmaz](https://www.behance.net/muratk)
 
 <!-- LICENSE -->
