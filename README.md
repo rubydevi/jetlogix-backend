@@ -22,7 +22,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-    - [🚀 Live Demo](#live-demo)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -105,11 +105,15 @@ JetLogix’s backend is a robust Rails application utilizing PostgreSQL database
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LIVE DEMO -->
-<!--
+
 ## 🚀 Live Demo <a name="live-demo"></a>
 
+> Live Demo of this application:
+
+- [Live Demo Link](https://jetlogix.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -125,8 +129,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-cd my-folder
-git clone https://github.com/rubydevi/jetlogix-backend.git
+  cd my-folder
+  git clone https://github.com/rubydevi/jetlogix-backend.git
 ```
 
 ### Install
@@ -137,7 +141,6 @@ Install this project with:
   cd my-project
 
   bundle install
-
 ```
 
 ### setup-env
@@ -216,9 +219,9 @@ Example:
 
 👤 Yonas Henok
 
-- GitHub: [@YonasHenok](https://github.com/rubydevi)
-- Twitter: [@YonasHenok3](https://twitter.com/rileycodez)
-- LinkedIn: [@Yonas Henok](https://www.linkedin.com/in/chongtham-bhoomika/)
+- GitHub: [@YonasHenok](https://github.com/Yonashenok)
+- Twitter: [@YonasHenok3](https://www.twitter.com/YonasHenok3)
+- LinkedIn: [@Yonas Henok](https://www.linkedin.com/in/yonas-henok/)
 
 👤 Riley Manda
 
