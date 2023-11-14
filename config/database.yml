@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: jetlogix_backend_production
-  username: jetlogix_backend
-  password: <%= ENV["JETLOGIX_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
