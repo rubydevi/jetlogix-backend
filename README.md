@@ -4,6 +4,7 @@
   <h1><b>JetLogix</b></h1>
 
 <div align="center">
+<h2>ER Diagrma</h2>
 <img width="741" alt="Screenshot 2023-09-25 at 12 07 22" src="./public/jetlogix-db-schema.png">
 
 </div>
