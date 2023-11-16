@@ -1,0 +1,165 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/aeroplanes":
+    get:
+      summary: Retrieves aeroplanes
+      tags:
+      - Aeroplanes
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: aeroplane found
+    post:
+      summary: Creates an Aeroplane
+      tags:
+      - Aeroplanes
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: aeroplane created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                model:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                number_of_seats:
+                  type: integer
+                location:
+                  type: string
+                fee:
+                  type: number
+                reserved:
+                  type: boolean
+              required:
+              - name
+              - model
+              - image
+              - description
+              - number_of_seats
+              - location
+              - fee
+              - reserved
+  "/api/v1/users/{user_id}/aeroplanes/{id}":
+    get:
+      summary: Retrieves an aeroplane
+      tags:
+      - Aeroplanes
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: aeroplane found
+    delete:
+      summary: Delete an aeroplane
+      tags:
+      - Aeroplanes
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Aeroplane deleted successfully
+        '404':
+          description: Failed to delete aeroplane
+  "/api/v1/users/{user_id}/reservations":
+    get:
+      summary: Retrieves reservations
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: reservations found
+    post:
+      summary: Creates a Reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: reservations created
+        '422':
+          description: Reservations creation failed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reserved_date:
+                  type: string
+                  format: datetime
+                start_time:
+                  type: string
+                  format: datetime
+                end_time:
+                  type: string
+                  format: datetime
+                start_location:
+                  type: string
+                destination:
+                  type: string
+                user_id:
+                  type: number
+                aeroplane_id:
+                  type: number
+              required:
+              - reserved_date
+              - destination
+              - user_id
+              - aeroplane_id
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: http://127.0.0.1:4000/
